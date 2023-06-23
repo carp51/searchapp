@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="search.js"></script>
+    <link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <p>2023年4月19日 サイトを更新しました</p>
+    <div id="showButton">
+        <button onclick="showImage()">地図を表示</button>
+    </div>
+    <div id="hideButton">
+        <button onclick="hideImage()">地図を非表示</button>
+    </div>
+    <img id="myImage" src="地図.jpeg" class="img-fluid" style="display:none;"/>
+    
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="検索したいメーカーを入力してください。">
+    <div id="myDiv"></div>
+</body>
+</html>
