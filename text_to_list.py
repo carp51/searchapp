@@ -41,10 +41,20 @@ for i in range(len(lines)):
     result = kks.convert(text)
     
     text = list(text)
+    re_text = []
     for j in range(len(text)):
         if text[j].isupper():
+            re_text.append(chr(ord(text[j]) + 32))
             text[j] = chr(ord(text[j]) + 32)
+            
+            continue
+        
+        if not text[j] in [" ", "★", ",", ".", "'"]:
+            re_text.append(text[j])
+            
+            
     text = "".join(text)
+    re_text = "".join(re_text)
     
     if tyuuko_flag or (now_alpha == "F" and 0< int(now_num) < 10):
         lines[i] += "(中古)"
@@ -53,7 +63,7 @@ for i in range(len(lines)):
     elif new_flag:
         lines[i] += "(新品)"
     
-    l.append([lines[i] + "_" + now_alpha + " " + now_num, lines[i] + " " + text + " " + ''.join([item['hira'] for item in result])])
+    l.append([lines[i] + "_" + now_alpha + " " + now_num, lines[i] + " " + text + " " + ''.join([item['hira'] for item in result]) +  " " + ''.join([item['kunrei'] for item in result]) + " " + re_text])
     
 
 print(f'const words = {l}')   
